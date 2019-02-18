@@ -1,0 +1,1234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://productsandServices.com/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://productsandServices.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://productsandServices.com/">
+      <s:import namespace="http://microsoft.com/wsdl/types/"/>
+      <s:element name="DoTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionRequest" type="tns:TransactionRequest"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TransactionRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ClientId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="StoreId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="PosId" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ClerkCode" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:double"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="PosTransactionId" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DoTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DoTransactionResult" type="tns:TransactionResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TransactionResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseMessage" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderAuthorization" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="LegalInformation" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AditionalInfo1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AditionalInfo2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AditionalInfo3" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AditionalInfo4" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AditionalInfo5" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AditionalInfo6" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CancelTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionRequest" type="tns:TransactionRequest"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelTransactionResult" type="tns:TransactionResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionRequest" type="tns:TransactionRequest"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckTransactionResult" type="tns:TransactionResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransactionFromPeriod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dtStartyyyyMMdd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="dtEndyyyyMMdd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clientId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="posid" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="productcategory" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransactionFromPeriodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransactionFromPeriodResult" type="tns:ArrayOfTransactionsSales"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTransactionsSales">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionsSales" nillable="true" type="tns:TransactionsSales"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionsSales">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ClientId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="PosId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCharge" type="s:float"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Authorization" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="InternalResponseMessage" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="POSTransactionId" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="StoreName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CashierFirsName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CashierLastName" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ClientUtility" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="StoreId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductCategoryId" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllBalances">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="tns:Credentials"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Credentials">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ClientId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="StoreId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="PosId" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ClerkCode" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllBalancesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllBalancesResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalancebyCarrierId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="tns:Credentials"/>
+            <s:element minOccurs="1" maxOccurs="1" name="CarrierId" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalancebyCarrierIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBalancebyCarrierIdResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllProductList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="tns:Credentials"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllProductListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllProductListResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllProductExtendList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="tns:Credentials"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllProductExtendListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllProductExtendListResult" type="tns:ArrayOfProductExtended"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProductExtended">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductExtended" nillable="true" type="tns:ProductExtended"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductExtended">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Reference1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Reference2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Reference3" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="LenghtRef1" type="s:byte"/>
+          <s:element minOccurs="1" maxOccurs="1" name="LenghtRef2" type="s:byte"/>
+          <s:element minOccurs="1" maxOccurs="1" name="LenghtRef3" type="s:byte"/>
+          <s:element minOccurs="0" maxOccurs="1" name="RegexRef1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="RegexRef2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="RegexRef3" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ValidateRef1" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ValidateRef2" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ValidateRef3" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ValidateCharRef1" type="s1:char"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ValidateCharRef2" type="s1:char"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ValidateCharRef3" type="s1:char"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraInfoLabel1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraInfoContent1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraInfoLabel2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraInfoContent2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraInfoLabel3" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraInfoContent3" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraInfoLabel4" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraInfoContent4" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraInfoLabel5" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraInfoContent5" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="FixAmount" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ClientUtility" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ExtraChargeEndClient" type="s:float"/>
+          <s:element minOccurs="1" maxOccurs="1" name="OrderPriority" type="s:byte"/>
+          <s:element minOccurs="1" maxOccurs="1" name="CategoryId" type="s:byte"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductInfo" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductImageUrl" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Include_Tax" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IsBillable" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="IsRePrintable" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdatedDate" type="s:dateTime"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPaymentVisible" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProductsByCarrier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="tns:Credentials"/>
+            <s:element minOccurs="1" maxOccurs="1" name="CarrierId" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductsByCarrierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductsByCarrierResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductsByCategoryId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="tns:Credentials"/>
+            <s:element minOccurs="1" maxOccurs="1" name="CategoryId" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductsByCategoryIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductsByCategoryIdResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitPayNotification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clerkCode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="amount" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="bank" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentNumber" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentDateyyyyMMdd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="originAccountNumber" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="paymentMethod" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="carriername" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitPayNotificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SubmitPayNotificationResult" type="tns:PayNotificationResult"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PayNotificationResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentId" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseMessage" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="OtherInfo" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PaymentsStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clerkCode" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentsStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentsStatusResult" type="tns:ArrayOfPaymentsInfo"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPaymentsInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PaymentsInfo" type="tns:PaymentsInfo"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PaymentsInfo"/>
+      <s:element name="GetAvailablePaymentMethods">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetAvailablePaymentMethodsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailablePaymentMethodsResult" type="tns:ArrayOfString"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAvailableBanks">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetAvailableBanksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableBanksResult" type="tns:ArrayOfString"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableCarriers">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetAvailableCarriersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableCarriersResult" type="tns:ArrayOfCarrier"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCarrier">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Carrier" nillable="true" type="tns:Carrier"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Carrier">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CarrierId" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAvailableCarriersbyCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CategoryId" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableCarriersbyCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableCarriersbyCategoryResult" type="tns:ArrayOfCarrier"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarriersSMSMarketing">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetCarriersSMSMarketingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarriersSMSMarketingResult" type="tns:ArrayOfCarrier"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSuscriberSMSMarketing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="tns:Credentials"/>
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="carriername" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSuscriberSMSMarketingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertSuscriberSMSMarketingResult" type="tns:TransactionResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnSuscribeSMSMarketing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="tns:Credentials"/>
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="comments" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnSuscribeSMSMarketingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UnSuscribeSMSMarketingResult" type="tns:TransactionResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSuscriberSMSMarketing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="tns:Credentials"/>
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckSuscriberSMSMarketingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckSuscriberSMSMarketingResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="suscribers" type="tns:ArrayOfSuscriberinfo"/>
+            <s:element minOccurs="1" maxOccurs="1" name="storeid" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="messagetype" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSuscriberinfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Suscriberinfo" nillable="true" type="tns:Suscriberinfo"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Suscriberinfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MessageCode" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Suscriberid" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSResult" type="tns:SMS_SendResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SMS_SendResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseMessage" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SmsSuscribers" type="tns:ArrayOfSuscriberinfo"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetActiveSuscribers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="tns:Credentials"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveSuscribersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveSuscribersResult" type="tns:ArrayOfSMS_Suscriber"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSMS_Suscriber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SMS_Suscriber" nillable="true" type="tns:SMS_Suscriber"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SMS_Suscriber">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SuscriberId" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SusciberPhone" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MessageStatus" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseMessage" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateCredentials">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="tns:Credentials"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateCredentialsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateCredentialsResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeClerkCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ClientId" type="s:long"/>
+            <s:element minOccurs="1" maxOccurs="1" name="StoreId" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Clerk_Old" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Clerk_New" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeClerkCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangeClerkCodeResult" type="tns:TransactionResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort"/>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DoTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:DoTransaction"/>
+  </wsdl:message>
+  <wsdl:message name="DoTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:DoTransactionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CancelTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelTransaction"/>
+  </wsdl:message>
+  <wsdl:message name="CancelTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelTransactionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CheckTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckTransaction"/>
+  </wsdl:message>
+  <wsdl:message name="CheckTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckTransactionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetTransactionFromPeriodSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransactionFromPeriod"/>
+  </wsdl:message>
+  <wsdl:message name="GetTransactionFromPeriodSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransactionFromPeriodResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAllBalancesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllBalances"/>
+  </wsdl:message>
+  <wsdl:message name="GetAllBalancesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllBalancesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetBalancebyCarrierIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalancebyCarrierId"/>
+  </wsdl:message>
+  <wsdl:message name="GetBalancebyCarrierIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalancebyCarrierIdResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAllProductListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllProductList"/>
+  </wsdl:message>
+  <wsdl:message name="GetAllProductListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllProductListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAllProductExtendListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllProductExtendList"/>
+  </wsdl:message>
+  <wsdl:message name="GetAllProductExtendListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllProductExtendListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductsByCarrierSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductsByCarrier"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductsByCarrierSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductsByCarrierResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductsByCategoryIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductsByCategoryId"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductsByCategoryIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductsByCategoryIdResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitPayNotificationSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitPayNotification"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitPayNotificationSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitPayNotificationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="PaymentsStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentsStatus"/>
+  </wsdl:message>
+  <wsdl:message name="PaymentsStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentsStatusResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailablePaymentMethodsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailablePaymentMethods"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailablePaymentMethodsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailablePaymentMethodsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableBanksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableBanks"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableBanksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableBanksResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCarriersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableCarriers"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCarriersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableCarriersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCarriersbyCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableCarriersbyCategory"/>
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCarriersbyCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableCarriersbyCategoryResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetCarriersSMSMarketingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCarriersSMSMarketing"/>
+  </wsdl:message>
+  <wsdl:message name="GetCarriersSMSMarketingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarriersSMSMarketingResponse"/>
+  </wsdl:message>
+  <wsdl:message name="InsertSuscriberSMSMarketingSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertSuscriberSMSMarketing"/>
+  </wsdl:message>
+  <wsdl:message name="InsertSuscriberSMSMarketingSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertSuscriberSMSMarketingResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UnSuscribeSMSMarketingSoapIn">
+    <wsdl:part name="parameters" element="tns:UnSuscribeSMSMarketing"/>
+  </wsdl:message>
+  <wsdl:message name="UnSuscribeSMSMarketingSoapOut">
+    <wsdl:part name="parameters" element="tns:UnSuscribeSMSMarketingResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CheckSuscriberSMSMarketingSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckSuscriberSMSMarketing"/>
+  </wsdl:message>
+  <wsdl:message name="CheckSuscriberSMSMarketingSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckSuscriberSMSMarketingResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS"/>
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetActiveSuscribersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveSuscribers"/>
+  </wsdl:message>
+  <wsdl:message name="GetActiveSuscribersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveSuscribersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ValidateCredentialsSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateCredentials"/>
+  </wsdl:message>
+  <wsdl:message name="ValidateCredentialsSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateCredentialsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeClerkCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeClerkCode"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeClerkCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeClerkCodeResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="DoTransaction">
+      <wsdl:input message="tns:DoTransactionSoapIn"/>
+      <wsdl:output message="tns:DoTransactionSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CancelTransaction">
+      <wsdl:input message="tns:CancelTransactionSoapIn"/>
+      <wsdl:output message="tns:CancelTransactionSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTransaction">
+      <wsdl:input message="tns:CheckTransactionSoapIn"/>
+      <wsdl:output message="tns:CheckTransactionSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionFromPeriod">
+      <wsdl:input message="tns:GetTransactionFromPeriodSoapIn"/>
+      <wsdl:output message="tns:GetTransactionFromPeriodSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBalances">
+      <wsdl:input message="tns:GetAllBalancesSoapIn"/>
+      <wsdl:output message="tns:GetAllBalancesSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalancebyCarrierId">
+      <wsdl:input message="tns:GetBalancebyCarrierIdSoapIn"/>
+      <wsdl:output message="tns:GetBalancebyCarrierIdSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductList">
+      <wsdl:input message="tns:GetAllProductListSoapIn"/>
+      <wsdl:output message="tns:GetAllProductListSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductExtendList">
+      <wsdl:input message="tns:GetAllProductExtendListSoapIn"/>
+      <wsdl:output message="tns:GetAllProductExtendListSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByCarrier">
+      <wsdl:input message="tns:GetProductsByCarrierSoapIn"/>
+      <wsdl:output message="tns:GetProductsByCarrierSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByCategoryId">
+      <wsdl:input message="tns:GetProductsByCategoryIdSoapIn"/>
+      <wsdl:output message="tns:GetProductsByCategoryIdSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitPayNotification">
+      <wsdl:input message="tns:SubmitPayNotificationSoapIn"/>
+      <wsdl:output message="tns:SubmitPayNotificationSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentsStatus">
+      <wsdl:input message="tns:PaymentsStatusSoapIn"/>
+      <wsdl:output message="tns:PaymentsStatusSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailablePaymentMethods">
+      <wsdl:input message="tns:GetAvailablePaymentMethodsSoapIn"/>
+      <wsdl:output message="tns:GetAvailablePaymentMethodsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableBanks">
+      <wsdl:input message="tns:GetAvailableBanksSoapIn"/>
+      <wsdl:output message="tns:GetAvailableBanksSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCarriers">
+      <wsdl:input message="tns:GetAvailableCarriersSoapIn"/>
+      <wsdl:output message="tns:GetAvailableCarriersSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCarriersbyCategory">
+      <wsdl:input message="tns:GetAvailableCarriersbyCategorySoapIn"/>
+      <wsdl:output message="tns:GetAvailableCarriersbyCategorySoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarriersSMSMarketing">
+      <wsdl:input message="tns:GetCarriersSMSMarketingSoapIn"/>
+      <wsdl:output message="tns:GetCarriersSMSMarketingSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSuscriberSMSMarketing">
+      <wsdl:input message="tns:InsertSuscriberSMSMarketingSoapIn"/>
+      <wsdl:output message="tns:InsertSuscriberSMSMarketingSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UnSuscribeSMSMarketing">
+      <wsdl:input message="tns:UnSuscribeSMSMarketingSoapIn"/>
+      <wsdl:output message="tns:UnSuscribeSMSMarketingSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSuscriberSMSMarketing">
+      <wsdl:input message="tns:CheckSuscriberSMSMarketingSoapIn"/>
+      <wsdl:output message="tns:CheckSuscriberSMSMarketingSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSSoapIn"/>
+      <wsdl:output message="tns:SendSMSSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveSuscribers">
+      <wsdl:input message="tns:GetActiveSuscribersSoapIn"/>
+      <wsdl:output message="tns:GetActiveSuscribersSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCredentials">
+      <wsdl:input message="tns:ValidateCredentialsSoapIn"/>
+      <wsdl:output message="tns:ValidateCredentialsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeClerkCode">
+      <wsdl:input message="tns:ChangeClerkCodeSoapIn"/>
+      <wsdl:output message="tns:ChangeClerkCodeSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DoTransaction">
+      <soap:operation soapAction="http://productsandServices.com/DoTransaction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelTransaction">
+      <soap:operation soapAction="http://productsandServices.com/CancelTransaction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTransaction">
+      <soap:operation soapAction="http://productsandServices.com/CheckTransaction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionFromPeriod">
+      <soap:operation soapAction="http://productsandServices.com/GetTransactionFromPeriod" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBalances">
+      <soap:operation soapAction="http://productsandServices.com/GetAllBalances" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalancebyCarrierId">
+      <soap:operation soapAction="http://productsandServices.com/GetBalancebyCarrierId" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductList">
+      <soap:operation soapAction="http://productsandServices.com/GetAllProductList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductExtendList">
+      <soap:operation soapAction="http://productsandServices.com/GetAllProductExtendList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByCarrier">
+      <soap:operation soapAction="http://productsandServices.com/GetProductsByCarrier" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByCategoryId">
+      <soap:operation soapAction="http://productsandServices.com/GetProductsByCategoryId" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitPayNotification">
+      <soap:operation soapAction="http://productsandServices.com/SubmitPayNotification" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentsStatus">
+      <soap:operation soapAction="http://productsandServices.com/PaymentsStatus" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailablePaymentMethods">
+      <soap:operation soapAction="http://productsandServices.com/GetAvailablePaymentMethods" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableBanks">
+      <soap:operation soapAction="http://productsandServices.com/GetAvailableBanks" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCarriers">
+      <soap:operation soapAction="http://productsandServices.com/GetAvailableCarriers" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCarriersbyCategory">
+      <soap:operation soapAction="http://productsandServices.com/GetAvailableCarriersbyCategory" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarriersSMSMarketing">
+      <soap:operation soapAction="http://productsandServices.com/GetCarriersSMSMarketing" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSuscriberSMSMarketing">
+      <soap:operation soapAction="http://productsandServices.com/InsertSuscriberSMSMarketing" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnSuscribeSMSMarketing">
+      <soap:operation soapAction="http://productsandServices.com/UnSuscribeSMSMarketing" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSuscriberSMSMarketing">
+      <soap:operation soapAction="http://productsandServices.com/CheckSuscriberSMSMarketing" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://productsandServices.com/SendSMS" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveSuscribers">
+      <soap:operation soapAction="http://productsandServices.com/GetActiveSuscribers" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCredentials">
+      <soap:operation soapAction="http://productsandServices.com/ValidateCredentials" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeClerkCode">
+      <soap:operation soapAction="http://productsandServices.com/ChangeClerkCode" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DoTransaction">
+      <soap12:operation soapAction="http://productsandServices.com/DoTransaction" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelTransaction">
+      <soap12:operation soapAction="http://productsandServices.com/CancelTransaction" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTransaction">
+      <soap12:operation soapAction="http://productsandServices.com/CheckTransaction" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionFromPeriod">
+      <soap12:operation soapAction="http://productsandServices.com/GetTransactionFromPeriod" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBalances">
+      <soap12:operation soapAction="http://productsandServices.com/GetAllBalances" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalancebyCarrierId">
+      <soap12:operation soapAction="http://productsandServices.com/GetBalancebyCarrierId" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductList">
+      <soap12:operation soapAction="http://productsandServices.com/GetAllProductList" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductExtendList">
+      <soap12:operation soapAction="http://productsandServices.com/GetAllProductExtendList" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByCarrier">
+      <soap12:operation soapAction="http://productsandServices.com/GetProductsByCarrier" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByCategoryId">
+      <soap12:operation soapAction="http://productsandServices.com/GetProductsByCategoryId" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitPayNotification">
+      <soap12:operation soapAction="http://productsandServices.com/SubmitPayNotification" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentsStatus">
+      <soap12:operation soapAction="http://productsandServices.com/PaymentsStatus" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailablePaymentMethods">
+      <soap12:operation soapAction="http://productsandServices.com/GetAvailablePaymentMethods" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableBanks">
+      <soap12:operation soapAction="http://productsandServices.com/GetAvailableBanks" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCarriers">
+      <soap12:operation soapAction="http://productsandServices.com/GetAvailableCarriers" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCarriersbyCategory">
+      <soap12:operation soapAction="http://productsandServices.com/GetAvailableCarriersbyCategory" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarriersSMSMarketing">
+      <soap12:operation soapAction="http://productsandServices.com/GetCarriersSMSMarketing" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSuscriberSMSMarketing">
+      <soap12:operation soapAction="http://productsandServices.com/InsertSuscriberSMSMarketing" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnSuscribeSMSMarketing">
+      <soap12:operation soapAction="http://productsandServices.com/UnSuscribeSMSMarketing" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSuscriberSMSMarketing">
+      <soap12:operation soapAction="http://productsandServices.com/CheckSuscriberSMSMarketing" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://productsandServices.com/SendSMS" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveSuscribers">
+      <soap12:operation soapAction="http://productsandServices.com/GetActiveSuscribers" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCredentials">
+      <soap12:operation soapAction="http://productsandServices.com/ValidateCredentials" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeClerkCode">
+      <soap12:operation soapAction="http://productsandServices.com/ChangeClerkCode" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://wspruebas.tiemporealmovil.mx/plat25t/WebService/Service.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://wspruebas.tiemporealmovil.mx/plat25t/WebService/Service.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
